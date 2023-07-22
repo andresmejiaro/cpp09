@@ -6,13 +6,13 @@
 #    By: amejia <amejia@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/27 23:52:11 by amejia            #+#    #+#              #
-#    Updated: 2023/07/13 14:15:11 by amejia           ###   ########.fr        #
+#    Updated: 2023/07/22 17:58:26 by amejia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS = main.cpp 
+SRCS = main.cpp RPN.cpp
 
-NAME = easyfind
+NAME = RPN
 NAME_DEBUG = debug
 
 
