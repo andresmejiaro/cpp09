@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 20:18:24 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/22 20:55:06 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/23 22:15:55 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <list>
 # include <iostream>
 # include <sstream>
+# include <iterator>
+# include "moveto.tpp"
 
 class PmergeMe {
 public:
@@ -30,6 +32,11 @@ private:
 	std::vector<int>	__numbersV;
 	std::list<int>		__numbersL;
 	int	__checkInput(std::string argvE);
+	
 };
+
+
+
+
 
 #endif // PMergeMe_H

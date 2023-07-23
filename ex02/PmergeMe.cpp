@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 20:28:45 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/22 20:59:17 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/24 00:16:53 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,9 @@ int	PmergeMe::__checkInput(std::string argvE){
 	std::istringstream iss(argvE);
 	int j;
 	iss >> j;
+	
 	if (iss.fail() || !iss.eof() || j < 0)
-		throw std::runtime_error("Invalid Input");
+		//throw std::runtime_error("Invalid Input");
+		return (-1);
 	return (j);
 }

@@ -6,7 +6,7 @@
 #    By: amejia <amejia@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/27 23:52:11 by amejia            #+#    #+#              #
-#    Updated: 2023/07/22 20:56:04 by amejia           ###   ########.fr        #
+#    Updated: 2023/07/23 20:25:38 by amejia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME_DEBUG = debug
 
 OBJS = ${SRCS:.cpp=.o}
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98# -g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -std=c++98 #-g3 -fsanitize=address
 
 CC = c++
 
