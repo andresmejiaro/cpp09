@@ -6,7 +6,7 @@
 #    By: amejia <amejia@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/27 23:52:11 by amejia            #+#    #+#              #
-#    Updated: 2023/07/24 18:01:23 by amejia           ###   ########.fr        #
+#    Updated: 2023/07/27 20:17:01 by amejia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ $(NAME): $(OBJS)
 $(NAME_DEBUG): $(SRCS) 
 	$(CC) $(CFLAGS) -g3 $(SRCS) -o $@
 
-debug: $(NAME_DEBUG)
+vs_debug: $(NAME_DEBUG)
 
 clean:
 	rm -rf $(OBJS)
