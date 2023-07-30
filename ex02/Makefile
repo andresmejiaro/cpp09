@@ -18,7 +18,7 @@ NAME_DEBUG = debug
 
 OBJS = ${SRCS:.cpp=.o}
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 #-g3 -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -std=c++98  -g -o2
 
 CC = c++
 
@@ -33,7 +33,7 @@ $(NAME): $(OBJS)
 $(NAME_DEBUG): $(SRCS) 
 	$(CC) $(CFLAGS) -g3 $(SRCS) -o $@
 
-vs_debug: $(NAME_DEBUG)
+vs_debug: $(NAME_DEBUG) moveto.tpp
 
 clean:
 	rm -rf $(OBJS)
@@ -43,4 +43,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY = all clean fclean debug re debug
+.PHONY = all clean fclean debug re vs_debug

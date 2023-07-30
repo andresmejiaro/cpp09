@@ -18,6 +18,8 @@
 # include <sstream>
 # include <iterator>
 # include "moveto.tpp"
+#include <algorithm>
+
 
 class PmergeMe {
 public:

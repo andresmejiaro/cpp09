@@ -17,27 +17,47 @@ int main(int argc, char **argv){
 	PmergeMe numbers(argc, argv);
 	
 	std::vector<int> abc = numbers.showV();
+
+	std::cout << "Before : ";
+	std::vector<int>::iterator it = abc.begin(), end = abc.end();
+	while( it != end){
+		std::cout << *it << " ";
+		it++;	
+	}
+	std::cout << std::endl;
+
 	std::clock_t start = std::clock();
     merge_insert(abc);
-    double duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
-    std::cout << "Time taken: " << duration << " seconds" << std::endl;  
-	
-
-	std::list<int> abcd = numbers.showL();
-	start = std::clock();
-    merge_insert(abcd);
-    duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
-    std::cout << "Time taken: " << duration << " seconds" << std::endl;  
-	
-	
-	std::list<int>::iterator it;
-	it = abcd.begin();
-	while(it != abcd.end()){
-		std::cout << *it << ",";
-		it++;
+    double duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC * 1000000;
+   	
+	std::cout << "After vector: ";
+	it = abc.begin();
+	end = abc.end();
+	while( it != end){
+		std::cout << *it << " ";
+		it++;	
 	}
 	std::cout << std::endl;
 	
+
+	std::list<int> abcd = numbers.showL(), abcdd = numbers.showL();
+	
+	start = std::clock();
+    merge_insert(abcd);
+    double duration2 = ( std::clock() - start ) / (double) CLOCKS_PER_SEC * 1000000;
+	std::cout << "After list: ";
+	std::list<int>::iterator itl = abcd.begin(), endl = abcd.end();
+	while( itl != endl){
+		std::cout << *itl << " ";
+		itl++;	
+	}
+	std::cout << std::endl;
+	
+	
+	std::cout << "Time to process a range of " << abc.size() 
+		<<" elements with std:;vector<int>: "<< duration << " us" << std::endl;  
+    std::cout << "Time to process a range of " << abcd.size() 
+		<<" elements with std:;list<int>: "<< duration2 << " us" << std::endl;  
 	return (0);
 }
 
