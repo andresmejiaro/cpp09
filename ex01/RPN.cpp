@@ -67,8 +67,9 @@ void RPN::__oneOperation(){
 	float t1,t2;
 	t_RPNtoken token;
 
-	if (__objects.size() < 3)
-		throw (std::runtime_error("Not enough params to do anything.\n"));
+	if (__objects.size() < 3 && __objects.size() > 0){
+			throw (std::runtime_error("Not enough params to do anything.\n"));
+	}
 	token = __objects.top();
 	if (token.type != "n")
 		throw (std::runtime_error("Expecting a number1\n"));	

@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 20:25:39 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/25 23:56:34 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/31 21:50:26 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <ctime>
 
 int main(int argc, char **argv){
+	try{
 	PmergeMe numbers(argc, argv);
 	
 	std::vector<int> abc = numbers.showV();
@@ -55,9 +56,12 @@ int main(int argc, char **argv){
 	
 	
 	std::cout << "Time to process a range of " << abc.size() 
-		<<" elements with std:;vector<int>: "<< duration << " us" << std::endl;  
+		<<" elements with std::vector<int>:\t"<< duration << " us" << std::endl;  
     std::cout << "Time to process a range of " << abcd.size() 
-		<<" elements with std:;list<int>: "<< duration2 << " us" << std::endl;  
+		<<" elements with std::list<int>:\t"<< duration2 << " us" << std::endl;  }
+	catch (...){
+		std::cout << "Error" << std::endl;
+	}
 	return (0);
 }
 

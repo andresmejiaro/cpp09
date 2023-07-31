@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 20:28:45 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/24 00:16:53 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/31 21:47:29 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,9 @@ PmergeMe &PmergeMe::operator=(const PmergeMe & other){
 }
 
 PmergeMe::PmergeMe(int argc, char **argv){
+	if (argc <= 1){
+		throw std::runtime_error("Not enough arguments");
+	}
 	for (int i = 1; i < argc; i++){
 		int v = __checkInput(argv[i]);
 		if (v == -1)

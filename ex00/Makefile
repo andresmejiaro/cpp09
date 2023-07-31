@@ -6,13 +6,13 @@
 #    By: amejia <amejia@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/27 23:52:11 by amejia            #+#    #+#              #
-#    Updated: 2023/07/18 23:05:57 by amejia           ###   ########.fr        #
+#    Updated: 2023/07/31 21:31:07 by amejia           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = main.cpp BitcoinExchange.cpp Date.cpp
 
-NAME = bce
+NAME = btc
 NAME_DEBUG = debug
 
 

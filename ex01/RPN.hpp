@@ -6,12 +6,12 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/22 17:42:08 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/22 18:07:37 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/31 21:40:51 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef RPN_HPP
-#define RPN_HPP
+# define RPN_HPP
 # include <string>
 # include <stack>
 # include <sstream>

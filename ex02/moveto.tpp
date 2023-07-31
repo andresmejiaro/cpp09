@@ -6,45 +6,11 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/27 19:20:31 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/28 00:15:50 by amejia           ###   ########.fr       */
+/*   Updated: 2023/07/31 21:18:11 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <algorithm>
-// template <typename T>
-// std::vector<T>	separate_chain(std::vector<T> & cont){
-// 	typename std::vector<T> secondary;
-// 	typename std::vector<T>::iterator it1, it2, it3;
-// 	it1 = cont.begin();
-// 	while (it1 != cont.end()){
-// 		it2 = it1;
-// 		it2++;
-// 		if (it2 == cont.end()){
-// 			secondary.push_back(*it1);
-// 			cont.pop_back();
-// 			break ;
-// 		}
-// 		if (*it2 > *it1){
-// 			T temp = *it2;
-// 			*it2 = *it1;
-// 			*it1 = temp;
-// 		}
-// 		secondary.push_back(*it2);
-// 		it3 = it2;
-// 		it3++;
-// 		while (it3 != cont.end()){
-// 			*it2 = *it3;
-// 			it2++;
-// 			it3++;
-// 			if (it3 == cont.end()){
-// 				cont.pop_back();
-// 				break ;
-// 			} 
-// 		}
-// 		it1++;
-// 	}
-// 	return (secondary);
-// }
 
 template <typename T>
 std::vector<T>	separate_chain(std::vector<T> & cont){
@@ -87,23 +53,10 @@ void	merge_step_size(std::vector<T> & cont, std::vector<T> &secondary,
 		while (p1 < p2 && p2 < lim && p2 < csiz){
 			if (cont[p2] < cont[p1]){
 				std::rotate(cont.begin()+p1,cont.begin() + p2, cont.begin()+p2+1);
-				std::rotate(secondary.begin()+p1,secondary.begin() + p2, secondary.begin()+p2+1);
+				std::rotate(secondary.begin()+p1,secondary.begin() + p2, 
+					secondary.begin()+p2+1);
 				p2++;
 			}
-			
-			// if (cont[p2] < cont[p1]){
-			// 	temp = cont[p2];
-			// 	temp2 = secondary[p2];
-			// 	p3 = p2;
-			// 	while (p3 > p1){
-			// 		cont[p3] = cont[p3 - 1];
-			// 		secondary[p3] = secondary[p3 - 1];
-			// 		p3--;
-			// 	}
-			// 	cont[p1] = temp;
-			// 	secondary[p1] = temp2;
-			// 	p2 ++;
-			// }
 			p1++;
 		}
 		p1 = lim;
