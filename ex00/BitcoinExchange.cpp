@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 22:27:57 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/22 17:05:17 by amejia           ###   ########.fr       */
+/*   Updated: 2023/08/03 00:16:06 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,13 +77,17 @@ void BitcoinExchange::processInput(std::string file){
 		if (skip++ == 0)
 			continue ;
 		std::istringstream iss(line);
-		std::string s1, s2;
+		std::string s1, s2, trailing;
 		std::getline(iss, s1, '|'); 
 		std::getline(iss, s2, '|'); 
-		float d1, d2;
+		float d1 = -1, d2;
 		Date current(s1);
-		std::istringstream(s2) >> d1;
-		if (line.size() == s1.size()){
+		std::istringstream iss2(s2);
+		iss2 >> d1;
+		std::getline(iss2, trailing);
+		if (line.size() == s1.size() || d1 == -1 ||
+			std::find_if(trailing.begin(), 
+			trailing.end(), Date::isalphanum) != trailing.end() ){
 			std::cout << "Error: bad input => " << line << std::endl;
 			continue ; 
 		}
@@ -99,7 +103,13 @@ void BitcoinExchange::processInput(std::string file){
 			std::cout << "Error: too large a number."  << std::endl;
 			continue ; 	
 		} 
-		d2 = (*(--__historic.lower_bound(current))).second;
+		std::map<Date, float>::iterator it;
+		it = __historic.lower_bound(current);
+		if (it == __historic.begin())
+			d2 = 0;
+		else {
+			d2 = (*(--it)).second;
+		}
 		std::cout << current << " => " << d1 << " = " << d1 * d2 << std::endl;
 	}
 }
