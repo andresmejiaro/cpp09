@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 22:27:57 by amejia            #+#    #+#             */
-/*   Updated: 2023/08/03 00:16:06 by amejia           ###   ########.fr       */
+/*   Updated: 2023/08/07 23:48:40 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,15 +79,20 @@ void BitcoinExchange::processInput(std::string file){
 		std::istringstream iss(line);
 		std::string s1, s2, trailing;
 		std::getline(iss, s1, '|'); 
-		std::getline(iss, s2, '|'); 
+		std::getline(iss, s2); 
 		float d1 = -1, d2;
 		Date current(s1);
 		std::istringstream iss2(s2);
 		iss2 >> d1;
+		if (d1 == -1 || iss2.fail()){
+			std::cout << "Error: bad input => " << line << std::endl;
+			continue ; 
+		}
 		std::getline(iss2, trailing);
 		if (line.size() == s1.size() || d1 == -1 ||
 			std::find_if(trailing.begin(), 
-			trailing.end(), Date::isalphanum) != trailing.end() ){
+			trailing.end(), Date::isalphanum) != trailing.end() 
+			){
 			std::cout << "Error: bad input => " << line << std::endl;
 			continue ; 
 		}

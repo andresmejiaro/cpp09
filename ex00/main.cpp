@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 23:01:54 by amejia            #+#    #+#             */
-/*   Updated: 2023/07/31 21:32:12 by amejia           ###   ########.fr       */
+/*   Updated: 2023/08/07 23:03:14 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ int main(int argc, char **argv){
 		BitcoinExchange Cargar("data.csv");
 		Cargar.processInput(argv[1]);
 	}
-	catch (...) {}
+	catch (const std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 	
 	
 	return (0);

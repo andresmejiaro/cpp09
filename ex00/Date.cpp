@@ -6,7 +6,7 @@
 /*   By: amejia <amejia@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/18 15:28:50 by amejia            #+#    #+#             */
-/*   Updated: 2023/08/02 23:56:45 by amejia           ###   ########.fr       */
+/*   Updated: 2023/08/07 23:24:25 by amejia           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ Date::Date(std::string str){
 	std::istringstream iss(str);
 	std::getline(iss, year, '-');
 	std::getline(iss, month, '-');
-	std::getline(iss, day, '-');
+	std::getline(iss, day);
 	std::istringstream is1(year);
 	is1 >> __year;
 	std::istringstream is2(month);
@@ -127,7 +127,8 @@ bool Date::__checkLeap(){
 }
 
 bool Date::isalphanum(char c){
-	return (std::isalnum(static_cast<unsigned char>(c)));
+	return (std::isprint(static_cast<unsigned char>(c)) &&
+			!std::isspace(static_cast<unsigned char>(c)));
 }
 
 std::ostream &operator<<(std::ostream &os, const Date &mdate){
